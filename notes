@@ -1,0 +1,7 @@
+-o vuln_disable_all -fno-stack-protector -z execstack -no-pie
+
+
+
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-protection=full    -g -o standard.exe
+
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -g  -no-pie -o vulnerable.exe
