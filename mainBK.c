@@ -7,7 +7,6 @@
 
 
 int spawn( int previousMonstersHitpoints, int difficultyFactor){
-  //here tiles array is pass by reference
 
   int hitpoints = 0;
   while(1){

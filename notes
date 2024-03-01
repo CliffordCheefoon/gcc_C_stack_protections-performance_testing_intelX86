@@ -11,6 +11,37 @@ gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-prot
 gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -g  -no-pie -o f.exe
 
 
+https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++.html#fn:gcc_mshstk
+
+
+ALSO TRY THIS:
+https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#dpcpp-cpp
+https://www.codeproject.com/Articles/1221348/Step-by-Step-Performance-Optimization-with-Intel-C
+
+With this Optimization
+
+fcf-protection docs (jump table?)
+https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-fcf-protection
+CET instrumentation is controlled by -fcf-protection.
+This is the true shadow stack. Check to see what the flags are when doing this:
+gcc -v -Q during compile
+
+mshstk (shadow stack) this may not even be activated 
+https://gcc.gnu.org/onlinedocs/gcc/x86-Options.html#index-mshstk
+https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++.html#fn:gcc_mshstk
+https://gcc.gnu.org/onlinedocs/gcc/x86-Built-in-Functions.html
+
+
+ -fsanitize=shadow-call-stack
+
+
+-fstack-protector-all
+https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-fstack-protector
+
+
+
+
+
 
 "C:\Program Files (x86)\Intel\oneAPI\vtune\2024.0\bin64\vtune" -collect uarch-exploration -knob sampling-interval=0.1 -knob collect-memory-bandwidth=true   --app-working-dir=C:\Users\Clifford\repos\securityPaper -- C:\Users\Clifford\repos\securityPaper\standard.exe 10000
 
