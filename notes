@@ -1,7 +1,18 @@
 -o vuln_disable_all -fno-stack-protector -z execstack -no-pie
 
+https://developers.redhat.com/articles/2022/06/02/use-compiler-flags-stack-protection-gcc-and-clang#control_flow_integrity
 
 
-gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-protection=full    -g -o standard.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c  -g -o a.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fcf-protection=full -g -o b.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all   -g -o c.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -mshstk   -g -o d.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-protection=full -mshstk   -g -o e.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -g  -no-pie -o f.exe
 
-gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -g  -no-pie -o vulnerable.exe
+
+
+"C:\Program Files (x86)\Intel\oneAPI\vtune\2024.0\bin64\vtune" -collect uarch-exploration -knob sampling-interval=0.1 -knob collect-memory-bandwidth=true   --app-working-dir=C:\Users\Clifford\repos\securityPaper -- C:\Users\Clifford\repos\securityPaper\standard.exe 10000
+
+"C:\Program Files (x86)\Intel\oneAPI\vtune\2024.0\bin64\vtune" -report summary -r r000ue  -format=csv  -csv-delimiter=","
+
