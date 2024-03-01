@@ -10,7 +10,7 @@ def run_test(test_case, run_process_cmd):
     collection_df = pandas.DataFrame()
 
 
-    for counter in range(2):
+    for counter in range(100):
 
 
         os.system(run_process_cmd) 
