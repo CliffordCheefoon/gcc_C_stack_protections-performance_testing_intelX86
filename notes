@@ -6,9 +6,12 @@ https://developers.redhat.com/articles/2022/06/02/use-compiler-flags-stack-prote
 gcc c:\Users\Clifford\repos\securityPaper\main.c  -g -o a.exe
 gcc c:\Users\Clifford\repos\securityPaper\main.c -fcf-protection=full -g -o b.exe
 gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all   -g -o c.exe
-gcc c:\Users\Clifford\repos\securityPaper\main.c -mshstk   -g -o d.exe
-gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-protection=full -mshstk   -g -o e.exe
-gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -g  -no-pie -o f.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fstack-protector-all -fcf-protection=full -pie  -g -o d.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -no-pie -g   -o e.exe
+gcc c:\Users\Clifford\repos\securityPaper\main.c -fno-stack-protector -fcf-protection=none -no-pie -mtune=native -march=native -g -o f.exe
+
+ 
+
 
 
 https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++.html#fn:gcc_mshstk
@@ -16,7 +19,7 @@ https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Gu
 
 ALSO TRY THIS:
 https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html#dpcpp-cpp
-https://www.codeproject.com/Articles/1221348/Step-by-Step-Performance-Optimization-with-Intel-C
+ic
 
 With this Optimization
 

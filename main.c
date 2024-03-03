@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
   long inputDifficulty = strtol(argv[1], NULL, 10);
   int difficultyFactor = inputDifficulty;
-  //developer 'trusts' the input argument to be within the range 0-10000, creating a clear vector for a buffer overflow when setting the monsters array
+  //developer 'trusts' the input argument to be within the range 0-100000, creating a clear vector for a buffer overflow when setting the monsters array
 
   srand(1); 
   populateEnemies(difficultyFactor);
@@ -18,18 +18,28 @@ int main(int argc, char *argv[])
 }
 
 void populateEnemies( int difficultyFactor){
-    int monsterHitpoints[10000]; 
+    int monsterHitpoints[100000]; 
     monsterHitpoints[0] = 0;
+    // printf("Entered populateEnemies method\n");
 
     for(int tile = 1 ; tile < difficultyFactor ; tile++){
 
     monsterHitpoints[tile] = spawn(monsterHitpoints[tile-1],difficultyFactor);
-    printf("Monster on tile %i will have %i hitpoints\n",tile, monsterHitpoints[tile]);
+    // printf("Monster on tile %i will have %i hitpoints\n",tile, monsterHitpoints[tile]);
 
   }
+    // printf("Exit populateEnemies method\n");
 }
 
 int spawn( int previousMonstersHitpoints, int difficultyFactor){
+  
+
+  unsigned int dataSection1[2];
+  dataSection1[0] = 0;
+  dataSection1[1] = 0;
+  unsigned int dataSection2[2];
+  dataSection2[0] = 0;
+  dataSection2[1] = 0;
 
   int hitpoints = 0;
   while(1){

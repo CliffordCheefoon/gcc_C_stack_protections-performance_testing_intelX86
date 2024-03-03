@@ -36,7 +36,7 @@ def run_test(test_case, run_process_cmd):
     collection_df.to_excel(test_case + ".xlsx")
 
 
-RUN_PROCESS_WITH_PROFILER_CMD = r""" "C:\Program Files (x86)\Intel\oneAPI\vtune\2024.0\bin64\vtune" -collect uarch-exploration -knob sampling-interval=0.1 -knob collect-memory-bandwidth=true   --app-working-dir=C:\Users\Clifford\repos\securityPaper -- C:\Users\Clifford\repos\securityPaper\REPLACEME.exe 10000 """
+RUN_PROCESS_WITH_PROFILER_CMD = r""" "C:\Program Files (x86)\Intel\oneAPI\vtune\2024.0\bin64\vtune" -collect uarch-exploration -knob sampling-interval=0.1 -knob collect-memory-bandwidth=true   --app-working-dir=C:\Users\Clifford\repos\securityPaper -- C:\Users\Clifford\repos\securityPaper\REPLACEME.exe 100000 """
 
 
 
