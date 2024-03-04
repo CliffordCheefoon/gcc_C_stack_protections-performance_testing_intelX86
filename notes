@@ -3,6 +3,10 @@
 https://developers.redhat.com/articles/2022/06/02/use-compiler-flags-stack-protection-gcc-and-clang#control_flow_integrity
 
 
+https://www.memorysafety.org/docs/memory-safety/
+
+https://www.f5.com/glossary/ssl-acceleration
+
 gcc .\monsterSpawner.c  -g -o a.exe
 gcc .\monsterSpawner.c -fcf-protection=full -g -o b.exe
 gcc .\monsterSpawner.c -fstack-protector-all   -g -o c.exe

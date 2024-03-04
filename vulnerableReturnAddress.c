@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
     /* We skip the very first instruction of give_me_a_shell(), otherwise it segfaults inside libc because of alignment issues.
      * See https://stackoverflow.com/questions/54393105/libcs-system-when-the-stack-pointer-is-not-16-padded-causes-segmentation-faul */
     printf("The current stack frame looks like this:\n");
-    for (int i = 0; i < 30; ++i)
+    for (int i = 0; i < 40; ++i)
     {
         printf("%02x | %016llx | %llx\n", i, rsp + i * 8, *(unsigned long long*)(rsp + i * 8));
     }
